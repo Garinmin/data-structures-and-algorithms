@@ -185,13 +185,13 @@ const characters = [
   },
 ];
 
-const getCharactersWithoutChildren = (characters) => {
+function getCharactersWithoutChildren(characters){
+  let character = characters.filter(character => character.children === undefined);
+  return character;
+}
 
-  let newArray = characters.filter((index) => {
-    return index.indexOf('children') > -1;
-  });
-  return newArray;
-};
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
