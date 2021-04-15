@@ -97,16 +97,7 @@ CHALLENGE 6
 Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 4 and your forEachTwoToThe function from challenge 5, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
-const mapTwoToThe = (arr) => {
-  const newArray = [];
-
-  arr.map(value => {
-    const newValue = Math.pow(2, value);
-    newArray.push(newValue);
-  });
-
-  return newArray;
-};
+const mapTwoToThe = arr => arr.map(value => Math.pow(2, value));
 
 
 /* ------------------------------------------------------------------------------------------------
