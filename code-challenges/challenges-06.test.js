@@ -23,12 +23,16 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
-  const arrName = arr.name;
+  const newArr = [];
+  const names = arr.map(function(i) {
+    return i.name;});
+  for (let i in names) {
+    let res = names[i].split('').reverse().join('');
+    newArr.push(res);
+  }
+  console.log(newArr);
+  return newArr;
 
-  /* const nameArr = arr.map(item => item).reverse();
-  const revName = (nameArr) => nameArr.split('').revese().join('');
-  console.log(revName); */
-  return arrName;
 };
 
 /* ------------------------------------------------------------------------------------------------
