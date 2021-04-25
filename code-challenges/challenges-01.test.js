@@ -15,7 +15,6 @@ const addOne = (arr) => {
     const incrValue = value +1;
     newArray.push(incrValue);
   });
-
   return newArray;
 
 };
@@ -35,9 +34,7 @@ const addExclamation = (arr) => {
     const newValue = `${value}!`;
     newArray.push(newValue);
   });
-
   return newArray;
-
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,19 +67,15 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-
-  return `${word.toUpperCase()} !`;
+  return word.toUpperCase() + '!';
 };
 
 const speaker = (words, callback) => {
   const newArray = [];
-
   words.forEach((value) => {
-    const medValue = value.callback;
-    const newValue = `${medValue}!`;
+    let newValue = callback(value);
     newArray.push(newValue);
   });
-
   return newArray;
 };
 
@@ -103,10 +96,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for (let i=0; i<times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,18 +124,17 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
-/* const createList = (availableItems) => {
-  const newArray = [];
-
-  arr.forEach((value) => {
-    const newValue = `${value}!`;
-    newArray.push(newValue);
-  });
-
-  return newArray;
-
+const createList = (availableItems) => {
+  const newArr = [];
+  availableItems.forEach((value) => {
+    if (value.available) {
+      newArr.push(value.name);
+    }
+  }
+  );
+  return newArr;
 };
- */
+
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
 
@@ -158,7 +154,6 @@ const fizzbuzz = (arr) => {
   const newArray = [];
 
   arr.forEach((num) => {
-
     if (num % 3 === 0 && num % 5 === 0) {
       newArray.push('Fizz Buzz');
     } else if (num % 3 === 0){
@@ -169,7 +164,6 @@ const fizzbuzz = (arr) => {
       newArray.push(num);
     }
   });
-
   return newArray;
 
 };
