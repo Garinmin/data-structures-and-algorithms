@@ -12,7 +12,12 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
-  // Solution code here...
+  let nameArr = [];
+  for (let i = 0; i < people.length; i++){
+    let name = people[i].firstName + ' ' + people[i].lastName;
+    nameArr.push(name);
+  }
+  return nameArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -23,7 +28,8 @@ Write a function named addValues that, given an array of numbers as input, uses 
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr) => {
-  // Solution code here...
+  let sum = arr.reduce((acc, cur) => acc + cur, 0);
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,7 +45,8 @@ Write a function named addPurchases that, given an array of objects as input, us
 ------------------------------------------------------------------------------------------------ */
 
 const addPurchases = (arr) => {
-  // Solution code here...
+  let sum = arr.reduce((acc, cur) => acc + cur.purchasePrice, 0);
+  return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,7 +58,8 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  // Solution code here...
+  let leng =  arr.reduce((acc) => acc + 1, 0);
+  return leng;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,7 +119,10 @@ let starWarsData = [{
 }];
 
 const returnNames = (arr) => {
-  // Solution code here...
+  return (arr.reduce((nameArr, cur) => {
+    nameArr.push(cur.name);
+    return nameArr;
+  }, []));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -123,7 +134,9 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  let strArr = str.split('');
+  let revStr = strArr.reduce((acc, cur) => cur + acc, '');
+  return revStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -176,7 +189,7 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -209,7 +222,13 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  let res = arr.reduce((acc, cur) => acc + isPrime(cur));
+  arr.forEach(element => {
+    if (element === 1) {
+      res = res - 1;
+    }
+  });
+  return res;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -252,7 +271,7 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -335,7 +354,7 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should return a count of the prime numbers in the array', () => {
     expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
   });
