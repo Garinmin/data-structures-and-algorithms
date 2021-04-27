@@ -202,14 +202,7 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 ------------------------------------------------------------------------------------------------ */
 
 const houseSize = (arr) => {
-  const sizes = [];
-  let houseName = [];
-  for (let i in arr) {
-    houseName.push(arr.name)Object.keys(arr).forEach(value => {
-    }
-  });
-  
-  return sizes;
+    
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -330,3 +323,4 @@ xdescribe('Testing challenge 10', () => {
     expect(houseSurvivors(characters)[2]).toStrictEqual({ house: 'Lannister', members: 4 });
   });
 });
+
