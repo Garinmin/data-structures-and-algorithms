@@ -7,8 +7,7 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 ------------------------------------------------------------------------------------------------ */
 
 const replaceZeros = (string) => {
-  string = string.replace(/0/g, 'zero');
-  return string;
+  return string.replace(/0/g, 'zero');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,18 +19,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  let check = false;
-  const strPin = String(pin);
-  const arr = strPin.split('');
-  console.log(arr);
-  for (let i in arr) {
-    if (!isNaN(arr[i]) && arr.length===4) {
-      check = true;}
-    console.log(arr.length + ' + ' + check);
-
-  }
-  console.log(check);
-  return check;
+  const regex =  /^\d{4}$/;
+  return regex.test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,7 +32,7 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  let regex = /[4-9]/g;
+  const regex = /[4-9]/g;
   word = word.toString();
   let x = word.replace(/[^a-zA-z]+/g, '');
   let wordLength = x.length - 1;
@@ -64,12 +53,8 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  let regex = /\d/;
-  if (string.matches(regex)) {
-    return true;
-  } else {
-    return false;
-  }
+  const regex = /^([a-zA-Z]+[0-9])/;
+  return (regex.test(string));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +74,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  const regex = /^[a-zA-Z0-9]+(\.?[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\.(net|com|org)$/;
+  return regex.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,10 +100,9 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
-};
-
-/* ------------------------------------------------------------------------------------------------
+  const regex = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.)\s*(\d+))?$/
+  return regex.test(phoneNumber);
+};/* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
 Write a function named findTagNames that iterates over an array of HTML strings and uses a regular expression pattern to return the closing tags.
