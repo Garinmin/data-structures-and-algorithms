@@ -109,16 +109,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let uppCase = [];
-  let strStr = '';
-  for (let i=0; i<str.length; i++) {
-    strStr = str.charAt(i);
-    if (strStr !== strStr.toLowerCase()) {
-      uppCase.push(str);
-      console.log(str);
-    }
-  }
-  return uppCase;
+  let regex = /\b[A-Z][a-z]+/g;
+  return str.match(regex) || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,12 +120,8 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  let re = /(\b[a-jA-J]\S+\b)/ig;
- /*  let re = /^[a-jA-J]/; */
-  arr = arr.join(' ');
-  arr = arr.match(re);
-  console.log(arr);
- return arr;
+  const regex = /^[A-J]/;
+  return arr.filter(ind => regex.test(ind));
 };
 
 /* ------------------------------------------------------------------------------------------------
